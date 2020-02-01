@@ -9,14 +9,27 @@ Provides the function of converting CSV character string data and converting the
 
 
 ## Usage
-	var text = 'aaa,bbb,ccc\r\n111,222,333\r\n';
-	var ret = CSV.parse(text);
+	var csv = 'aaa,bbb,ccc\r\n12345,67890,"ddd,eee""fff""\r\nggg"';
+	var records = CSV.parse(csv);
+	console.log(records);
+	// (2) [Array(3), Array(3)]
+	// 0: (3) ["aaa", "bbb", "ccc"]
+	// 1: (3) ["12345", "67890", "ddd,eee"fff"
+	// ↵ggg"]
+	// length: 2
+	
+	var text = CSV.stringify(records);
+	console.log(text);
+	// aaa,bbb,ccc
+	// 12345,67890,"ddd,eee""fff""
+	// ggg"
 
-	var records = [['aaa', 'bbb', 'ccc'], [111, 222, 333]];
-	var ret = CSV.stringify(records);
 
 
-## Copyright
-Copyright (c) 2019 toshi (https://www.bugbugnow.net/p/profile.html)  
-Released under the MIT license.  
-see https://opensource.org/licenses/MIT
+## License
+[MIT](https://github.com/k08045kk/CSV.js/blob/master/LICENSE)
+
+
+
+## Author
+[toshi](https://www.bugbugnow.net/p/profile.html)
